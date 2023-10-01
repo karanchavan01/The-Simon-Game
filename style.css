@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: beige;
+}
+
+body{
+    text-align: center;
+    background-color: black;
+}
+
+h1{
+    color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+}
+h2{
+    color: bisque;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+/* #start{
+    color: rgb(183, 108, 252);
+    font-family: serif;
+    font-size: 30px;
+} */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 20px solid beige;
+    margin: 50px;
+}
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.game-flash{
+    background-color: aliceblue;
+}
+
+.player-flash{
+    background-color: black;
+}
