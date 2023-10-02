@@ -1,5 +1,6 @@
 let level = 0;
 let high_level = 0;
+let prev_level = 0;
 let start = false;
 let game = [];
 let player = [];
@@ -42,8 +43,6 @@ function playerFlash(btn){
 }
 
 function checkAns(index){
-    // console.log("current level: ", level);
-    // let index = level - 1;
     if(player[index] === game[index]){
         if(player.length == game.length){
             setTimeout(levelUp, 1000);
@@ -52,14 +51,17 @@ function checkAns(index){
     else{
         let curr_level = level;
         if(curr_level > high_level){
-            high_level = level;
+            high_level = curr_level;
         }
-        text.innerHTML = `Game Over! Press any key, to RESTART <br> You are out on Level ${level} <br> Your HIGH LEVEL : ${high_level}`;
+        text.innerHTML = `Game Over! Press any key, to RESTART <br> You are out on Level ${level} <br> HIGH LEVEL : ${high_level} & PREVIOUS LEVEL : ${prev_level}`;
         document.querySelector("body").style.backgroundColor = "red";
         setTimeout(function(){
             document.querySelector("body").style.backgroundColor = "black";
         }, 500)
         reset();
+        if(curr_level > high_level){
+            reset1();
+        }
     }
 }
 
@@ -70,7 +72,6 @@ function btnPress(){
     playerFlash(btn);
     playerColor = btn.getAttribute("id");
     player.push(playerColor);
-
     checkAns(player.length-1);
 }
 
@@ -83,6 +84,10 @@ function reset(){
     start = false;
     game = [];
     player = [];
-    high_level = level;
+    prev_level = level;
     level = 0;
+}
+
+function reset1(){
+    high_level = level;
 }
